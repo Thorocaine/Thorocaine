@@ -1,31 +1,13 @@
 image: microsoft/dotnet:latest
 
 stages:
-    - build-Core
-    - build-cli
-#    - test
+    - build
 
 build:
-    stage: build-Core
+    stage: build
     script:
         - "dotnet pack -c release -o ../../bin src/Thorocaine/Thorocaine.csproj"
-    #artifacts:
-    #  paths:
-    #    - bin/
-
-build:
-    stage: build-cli
-    script:
         - "dotnet pack -c release -o ../../bin src/Thorocaine.Console/Thorocaine.Cli.csproj"
-    #artifacts:
-    #  paths:
-    #    - bin/
-
-artifacts:
-  paths:
-    - "bin/*.nupkg"
-
-# test:
-#    stage: test
-#    script: 
-#        - "dotnet test"
+    artifacts:
+      paths:
+        - "bin/*.nupkg""
