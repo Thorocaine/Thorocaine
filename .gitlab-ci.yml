@@ -6,9 +6,9 @@ stages:
 build:
     stage: build
     script:
-        - "dotnet pack -c release -o ../../bin -Version 0.0.%CI_BUILD_ID% src/Thorocaine/Thorocaine.csproj"
-        - "dotnet pack -c release -o ../../bin -Version 0.0.%CI_BUILD_ID% src/Thorocaine.Console/Thorocaine.Cli.csproj"
-        - "nuget push bin/*.nupkg %NugetAPIKey%"
+        - 'dotnet pack -c release -o ../../bin -Version 0.0.%CI_BUILD_ID% src/Thorocaine/Thorocaine.csproj'
+        - 'dotnet pack -c release -o ../../bin -Version 0.0.%CI_BUILD_ID% src/Thorocaine.Console/Thorocaine.Cli.csproj'
+        - 'nuget push bin/*.nupkg %NugetAPIKey%'
     artifacts:
       paths:
         - "bin/*.nupkg"
