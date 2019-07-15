@@ -10,4 +10,4 @@ build:
         - "dotnet pack -c release -o ../../bin src/Thorocaine.Console/Thorocaine.Cli.csproj"
     artifacts:
       paths:
-        - "bin/*.nupkg""
+        - "bin/*.nupkg"
