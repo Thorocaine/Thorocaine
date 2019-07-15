@@ -8,7 +8,7 @@ stages:
 build:
     stage: build-Core
     script:
-        - "dotnet build src/Thorocaine/Thorocaine.csproj"
+        - "dotnet pack -c release -o ../../bin src\Thorocaine\Thorocaine.csproj"
     artifacts:
       paths:
         - bin/
@@ -16,7 +16,7 @@ build:
 build:
     stage: build-cli
     script:
-        - "dotnet build src/Thorocaine.Console/Thorocaine.Cli.csproj"
+        - "dotnet pack -c release -o ../../bin src\Thorocaine.Console\Thorocaine.Cli.csproj"
     artifacts:
       paths:
         - bin/
