@@ -1,6 +1,7 @@
 ﻿#nullable enable
 
 using System;
+using System.Threading.Tasks;
 
 namespace Thorocaine
 {
@@ -13,5 +14,7 @@ namespace Thorocaine
             action(@this);
             return @this;
         }
+
+        public static Task<T> AsTask<T>(this T @this) => Task.FromResult(@this);
     }
 }
