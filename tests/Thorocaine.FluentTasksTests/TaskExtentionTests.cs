@@ -102,7 +102,7 @@ namespace Thorocaine.FluentTasksTests
 			var results = new List<int>();
 			var task = Enumerable.Range(1, 5).AsTask();
 			await task.ForEach(async (x) => await Task.Run(() => results.Add(x)));
-			results.Should().Equal(1, 2, 3, 4, 5);
+			results.OrderBy(x => x).Should().Equal(1, 2, 3, 4, 5);
 		}
 		
 		[Fact]
