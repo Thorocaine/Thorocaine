@@ -8,9 +8,9 @@ build:
     only:
         - master
     script:
-	- 'echo THIS WANTS TO BE VERSION 0.0.%CI_BUILD_ID%'
-	- 'dotnet build'
-	- 'dotnet test'
+        - 'echo THIS WANTS TO BE VERSION 0.0.%CI_BUILD_ID%'
+        - 'dotnet build'
+        - 'dotnet test'
         - 'dotnet pack src/**/*.csproj -c release -o ./pack' # -Version 0.0.%CI_BUILD_ID% '
         - 'dotnet nuget push ./pack/*.nupkg -k %NugetAPIKey%'
     artifacts:
