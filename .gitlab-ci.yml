@@ -8,10 +8,10 @@ build:
     only:
         - master
     script:
-        - 'echo THIS WANTS TO BE VERSION 0.0.%CI_BUILD_ID%'
+        - 'echo THIS WANTS TO BE VERSION 1.0.%CI_BUILD_ID%'
         - 'dotnet build'
         - 'dotnet test'
-        - 'dotnet pack src/**/*.csproj -c release -o ./pack' # -Version 0.0.%CI_BUILD_ID% '
+        - 'dotnet pack src/**/*.csproj -c release -o ./pack -Version 1.0.%CI_BUILD_ID%'
         - 'dotnet nuget push ./pack/*.nupkg -k %NugetAPIKey%'
     artifacts:
       paths:

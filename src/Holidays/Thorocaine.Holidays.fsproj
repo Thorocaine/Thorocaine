@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Jonathan Peel</Authors>
+    <Copyright>2020 Jonathan Peel</Copyright>
+    <Description>South African holdays (valid from 2020, maybe before depending when the last change was)</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Computus.fs" />
+    <Compile Include="Holidays.fs" />
+  </ItemGroup>
+
+</Project>
