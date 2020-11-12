@@ -1,23 +1,7 @@
 image: mcr.microsoft.com/dotnet/sdk:5.0
 
 stages:
-    - build
-    - test
     - deploy
-
-build:
-    stage: build
-    only:
-        - master
-    script:
-        - 'dotnet build -c release'
-
-test:
-    stage: test
-    only:
-        - master
-    script:
-        - 'dotnet test -c release'
 
 deploy:
     stage: deploy
@@ -25,9 +9,10 @@ deploy:
         - master
     script:
         - echo THIS WANTS TO BE VERSION $CI_BUILD_ID
-        - 'dotnet pack src/**/*.csproj -c release -o ./pack --version-suffix $CI_JOB_ID'
-        - 'dotnet pack src/**/*.fsproj -c release -o ./pack --version-suffix $CI_JOB_ID'
-        - 'dotnet nuget push ./pack/*.nupkg -k %NugetAPIKey%'
+        - dotnet build -c release
+        - dotnet test -c release
+        - dotnet pack src/**/*.fsproj -c release -o ./pack --version-suffix $CI_JOB_ID
+        - dotnet nuget push ./pack/*.nupkg -k %NugetAPIKey%
     artifacts:
       paths:
         - "bin/*.nupkg"
